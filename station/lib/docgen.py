@@ -25,10 +25,6 @@ changelog""",
         print("```", file=f)
 
     for i, metastation in enumerate(metastations):
-        # Skip non-metastation objects (like ARoadStop which is added directly)
-        if not hasattr(metastation, "class_label_plain"):
-            continue
-
         metastation_label = metastation.class_label_plain
         translation = get_translation(string_manager[f"STR_METASTATION_CLASS_{metastation_label}"], 0x7F)
         for kind in ["layouts", "stations", "waypoints", "road_stops", "objects"]:

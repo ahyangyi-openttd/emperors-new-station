@@ -38,8 +38,7 @@ def gen(args):
 
     parameter_list.add(g, s)
     for metastation in metastations:
-        if hasattr(metastation, "check_id_uniqueness"):
-            metastation.check_id_uniqueness()
+        metastation.check_id_uniqueness()
         g.add(metastation)
 
     g.write("ens.grf")
