@@ -8,18 +8,13 @@ from .misc import track_ground, default_ground, building_ground
 from .demo import get_demos
 
 ENS_CLASS = b"ENS_"
-current_id = 0
 
 
-def make_station(layout, symmetry, notes=None):
-    global current_id
+def make_station(station_tiles, entries, layout, symmetry, base_id, notes=None):
     var = symmetry.get_all_variants(layout)
     l = symmetry.create_variants(var)
 
-    base_id = current_id
-    current_id += 1
-
-    stations = [
+    station_tiles.append(
         AStation(
             id=base_id,
             translation_name="RAIL_NAME",
@@ -31,11 +26,11 @@ def make_station(layout, symmetry, notes=None):
             enable_if=[parameter_list["RAIL_STATION"]],
             doc_layout=l,
         )
-    ]
+    )
 
     if layout.traversable:
         wp_l = replace(l, notes=["waypoint"])
-        stations.append(
+        station_tiles.append(
             AStation(
                 id=0x80 + base_id,
                 translation_name="RAIL_WAYPOINT",
@@ -49,34 +44,25 @@ def make_station(layout, symmetry, notes=None):
             )
         )
 
-    return stations, l
+    entries.append(l)
 
 
 def register():
     station_tiles = []
     entries = []
 
-    s, l = make_station(ALayout(track_ground, [], True, category=ENS_CLASS), BuildingSymmetrical)
-    station_tiles.extend(s)
-    entries.append(l)
-
-    s, l = make_station(ALayout(default_ground, [], False, category=ENS_CLASS), BuildingCylindrical)
-    station_tiles.extend(s)
-    entries.append(l)
-
-    s, l = make_station(ALayout(building_ground, [], False, category=ENS_CLASS), BuildingCylindrical)
-    station_tiles.extend(s)
-    entries.append(l)
+    make_station(station_tiles, entries, ALayout(track_ground, [], True, category=ENS_CLASS), BuildingSymmetrical, 0x00)
+    make_station(
+        station_tiles, entries, ALayout(default_ground, [], False, category=ENS_CLASS), BuildingCylindrical, 0x10
+    )
+    make_station(
+        station_tiles, entries, ALayout(building_ground, [], False, category=ENS_CLASS), BuildingCylindrical, 0x11
+    )
 
     return station_tiles, entries
 
 
 station_tiles, entries = register()
-
-
-def repeat(layouts_list, n):
-    return [row * n for row in layouts_list]
-
 
 demos = get_demos(entries)
 
