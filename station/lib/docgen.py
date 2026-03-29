@@ -102,7 +102,7 @@ changelog""",
                         print(
                             f"""
 .. figure:: img/{metastation_label}/{kind}/{idpath}.png
-  :width: 64
+  :width: 128
   :figclass: inline-figure
 
   {idstr}
