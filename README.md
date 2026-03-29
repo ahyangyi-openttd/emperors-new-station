@@ -3,7 +3,7 @@ Emperor's New Station
 
 ![Unit tests](https://github.com/ahyangyi-openttd/emperors-new-station/actions/workflows/unit-tests.yml/badge.svg)
 
-Two engineers arrived at the Emperor's court, claiming they could build magnificent stations of unparalleled beauty—visible only to the wise and competent, but completely invisible to anyone who was stupid or unfit for their position.
+Two architects arrived at the Emperor's court, claiming they could build magnificent stations of unparalleled beauty—visible only to the wise and competent, but completely invisible to anyone who was stupid or unfit for their position.
 
 The officials inspected the work and returned praising the elegant platforms and graceful architecture. The Emperor himself visited the site and was so impressed by the seamless integration with the landscape that he commanded a grand parade.
 
