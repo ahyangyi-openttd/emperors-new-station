@@ -24,7 +24,10 @@ def get_demos(entries):
 
     return {
         "Sample Layouts": [
-            Demo(repeat([[entries[1]], [entries[0]], [entries[0]], [entries[2]]], 4), "Emperor's New Rail Station"),
+            Demo(repeat([[entries[1]], [entries[0]], [entries[0]], [entries[1]]], 4), "Emperor's New Rail Station"),
+            Demo(
+                repeat([[entries[2]], [entries[0]], [entries[0]], [entries[2]]], 4), "Emperor's New Urban Rail Station"
+            ),
             Demo(
                 [
                     [entries[2], layout_1, entries[2], entries[2], entries[2]],

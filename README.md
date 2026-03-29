@@ -4,6 +4,8 @@ Emperor's New Station
 ![Unit tests](https://github.com/ahyangyi-openttd/emperors-new-station/actions/workflows/unit-tests.yml/badge.svg)
 ![Docs](https://github.com/ahyangyi-openttd/emperors-new-station/actions/workflows/sphinx-gh-pages.yml/badge.svg)
 
+![Logo](docs/img/logo.png)
+
 "I could not find a single error or mistake in the entire work." — The Inspector
 
 "Such seamless integration with the landscape deserves a grand celebration." — The Emperor

@@ -12,6 +12,7 @@ render
 # Generated documentation
 docs/_build/
 docs/img/
+!docs/img/logo.png
 docs/*.md
 !docs/readme.md
 !docs/changelog.md
