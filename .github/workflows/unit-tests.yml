@@ -1,0 +1,38 @@
+name: Unit tests
+
+on:
+  # Runs on pushes targeting any branch
+  push:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "test"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Install Python 3.13
+        run: uv python install 3.13
+      - name: Create venv
+        run: uv venv --python 3.13
+      - name: Install system deps
+        run: sudo apt update && sudo apt install libjpeg-dev zlib1g-dev
+      - name: Install python deps
+        run: uv pip install -r requirements.txt && uv pip install pytest
+      - name: Test stations
+        run: uv run pytest station

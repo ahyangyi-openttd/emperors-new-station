@@ -1,0 +1,159 @@
+import os
+from agrf.strings import get_translation, remove_control_letters
+from agrf.graphics.palette import CompanyColour
+from .utils import get_1cc_remap, class_label_printable
+
+
+def gen_docs(string_manager, metastations):
+    prefix = "docs/"
+
+    with open(os.path.join(prefix, "index.md"), "w") as f:
+        print(
+            """
+```{include} readme.md
+```
+
+```{toctree}
+:maxdepth: 2
+:hidden:
+changelog""",
+            file=f,
+        )
+        for metastation in metastations:
+            metastation_label = metastation.class_label_plain
+            print(metastation.class_label_plain, file=f)
+        print("```", file=f)
+
+    for i, metastation in enumerate(metastations):
+        # Skip non-metastation objects (like ARoadStop which is added directly)
+        if not hasattr(metastation, "class_label_plain"):
+            continue
+
+        metastation_label = metastation.class_label_plain
+        translation = get_translation(string_manager[f"STR_METASTATION_CLASS_{metastation_label}"], 0x7F)
+        for kind in ["layouts", "stations", "waypoints", "road_stops", "objects"]:
+            os.makedirs(os.path.join(prefix, "img", metastation_label, kind), exist_ok=True)
+
+        toc = []
+        demo_toc = []
+
+        for kind in ["stations", "waypoints", "road_stops", "objects"]:
+            if kind == "road_stops":
+                pool = [x for x in getattr(metastation, "road_stops", []) if not x.is_waypoint]
+            elif kind == "objects":
+                pool = getattr(metastation, "objects", [])
+            else:
+                pool = getattr(metastation, "stations", [])
+
+            if not pool:
+                continue
+
+            if getattr(metastation, "categories", None) is None:
+                subsections = {
+                    None: [
+                        x
+                        for x in pool
+                        if (("waypoint" not in x.doc_layout.notes) ^ (kind == "waypoints"))
+                        and "noshow" not in x.doc_layout.notes
+                    ]
+                }
+            else:
+                subsections = {k: [] for k in metastation.categories}
+                for layout in pool:
+                    if (
+                        ("waypoint" not in layout.doc_layout.notes) ^ (kind == "waypoints")
+                    ) and "noshow" not in layout.doc_layout.notes:
+                        subsections[layout.doc_layout.category].append(layout)
+
+            if all(len(v) == 0 for v in subsections.values()):
+                continue
+
+            tocentry = f"{metastation_label}_{kind}"
+            toc.append(tocentry)
+            with open(os.path.join(prefix, f"{tocentry}.rst"), "w") as f:
+                title = {
+                    "stations": "Stations",
+                    "waypoints": "Waypoints",
+                    "road_stops": "Road Stops",
+                    "objects": "Objects",
+                }[kind]
+                print(f"================\n{title}\n================\n", file=f)
+
+                for sub in subsections:
+                    if sub is not None and len(subsections[sub]) > 0:
+                        cat_name = get_translation(
+                            string_manager[f"STR_STATION_CLASS_{class_label_printable(sub)}"], 0x7F
+                        )
+                        if "-" in cat_name and "Template -" not in cat_name:
+                            cat_name = cat_name.split("-")[-1].strip()
+                        cat_name = remove_control_letters(cat_name)
+                        if cat_name.startswith("|> "):
+                            cat_name = cat_name[3:]
+                        print(f"----------------\n{cat_name}\n----------------", file=f)
+                    for layout in sorted(subsections[sub], key=lambda x: x.id):
+                        img = (
+                            layout.doc_layout.graphics(4, 32, remap=get_1cc_remap(CompanyColour.BLUE))
+                            .crop()
+                            .to_pil_image()
+                        )
+                        idstr = f"{layout.id:04X}"
+                        idpath = idstr
+                        img.save(os.path.join(prefix, "img", f"{metastation_label}/{kind}/{idpath}.png"))
+                        print(
+                            f"""
+.. figure:: img/{metastation_label}/{kind}/{idpath}.png
+  :width: 64
+  :figclass: inline-figure
+
+  {idstr}
+""",
+                            file=f,
+                        )
+
+        for demoi, (title, demov) in enumerate(getattr(metastation, "demos", {}).items()):
+            demok = title.replace(" ", "_").lower()
+            os.makedirs(os.path.join(prefix, "img", metastation_label, "layouts", demok), exist_ok=True)
+            tocentry = f"{metastation_label}_{demok}"
+            demo_toc.append(tocentry)
+            with open(os.path.join(prefix, f"{tocentry}.rst"), "w") as f:
+                print(f"================\n{title}\n================\n", file=f)
+                for i, demo in enumerate(demov):
+                    img = demo.graphics(4, 32).crop().resize(1920, 1080).to_pil_image()
+                    img.save(os.path.join(prefix, "img", f"{metastation_label}/layouts/{demok}/{i:04X}.png"))
+                    print(
+                        f"""
+----------------
+{demo.title}
+----------------
+
+.. image:: img/{metastation_label}/layouts/{demok}/{i:04X}.png
+""",
+                        file=f,
+                    )
+
+        with open(os.path.join(prefix, f"{metastation_label}.md"), "w") as f:
+            print(
+                f"""# {translation}
+
+```{{toctree}}
+:maxdepth: 2""",
+                file=f,
+            )
+            for item in toc:
+                print(item, file=f)
+            if len(demo_toc) > 0:
+                print(f"{metastation_label}_demo", file=f)
+            print("```\n", file=f)
+
+        if len(demo_toc) > 0:
+            with open(os.path.join(prefix, f"{metastation_label}_demo.md"), "w") as f:
+                print(
+                    """# Demos
+
+```{toctree}
+:maxdepth: 2""",
+                    file=f,
+                )
+                for item in demo_toc:
+                    print(item, file=f)
+                print("```\n", file=f)

@@ -1,0 +1,30 @@
+##grflangid 0x01
+STR_GRF_NAME                    :Emperor's New Station {WHITE}1.0.0-INDEV
+STR_GRF_DESC                    :It is rumored that this NewGRF contains magnificent new stations, visible only to the wise and completely invisible to anyone who is stupid or unfit for their position.{}{}On a more serious note, this NewGRF provides railway stations, bus stations, and waypoints that reuse base set bare ground graphics. They can be used to make functional stations that are "invisible".
+
+STR_PARAM_BOOLEAN_ENABLED           :Enabled
+STR_PARAM_BOOLEAN_DISABLED          :Disabled
+
+STR_PARAM_TRAIN_STATION             :Train Station
+STR_PARAM_TRAIN_WAYPOINT            :Train Waypoint
+STR_PARAM_ROAD_STATION              :Road Station
+STR_PARAM_ROAD_WAYPOINT             :Road Waypoint
+
+STR_PARAM_ROADSTOP           :Road Stations
+STR_PARAM_ROADSTOP_DESC      :Do you want the Emperor's New Road Stations in your game?
+
+STR_PARAM_RAIL_STATION          :Railway Stations
+STR_PARAM_RAIL_STATION_DESC     :Do you want the Emperor's New Railway Stations in your game?
+
+STR_STATION_RAIL_NAME                    :Emperor's New Rail Station
+STR_STATION_RAIL_WAYPOINT                :Emperor's New Rail Waypoint
+
+STR_STATION_CLASS_ENS_           :Emperor's New Station
+
+STR_METASTATION_CLASS_ENS_       :Emperor's New Station
+
+
+STR_ROADSTOP_STOP                        :Emperor's New Road Stop
+STR_ROADSTOP_WAYPOINT                    :Emperor's New Road Waypoint
+
+STR_ROADSTOP_CLASS_ENS_          :Emperor's New Station

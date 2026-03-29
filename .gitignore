@@ -1,0 +1,17 @@
+__pycache__
+*.grf
+*.pyc
+gopath
+/*.vox
+.cache
+render
+*.code-workspace
+.directory
+*.prof
+
+# Generated documentation
+docs/
+!docs/readme.md
+!docs/conf.py
+!docs/*.rst
+!docs/*.md
