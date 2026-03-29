@@ -21,7 +21,7 @@ Two architects arrived at the Emperor's court, claiming they could build magnifi
 
 The officials inspected the work and returned praising the elegant platforms and graceful architecture. The Emperor himself visited the site and was so impressed by the seamless integration with the landscape that he commanded a grand parade.
 
-On the day of the parade, the citizens gathered to admire these celebrated stations across the land, each describing the magnificent structures they perceived. The Emperor stood proudly before his people, surrounded by the finest railway stations his realm had ever seen.
+On the day of the parade, the citizens gathered to admire these celebrated stations across the land, each describing the magnificent structures they perceived. The Emperor stood proudly before his people, surrounded by the finest stations his realm had ever seen.
 
 On a more serious note, this NewGRF provides railway stations, bus stations, and waypoints that reuse base set bare ground graphics. They can be used to make functional stations that are "invisible".
 
