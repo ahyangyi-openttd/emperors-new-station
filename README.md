@@ -2,6 +2,7 @@ Emperor's New Station
 =====================
 
 ![Unit tests](https://github.com/ahyangyi-openttd/emperors-new-station/actions/workflows/unit-tests.yml/badge.svg)
+![Docs](https://github.com/ahyangyi-openttd/emperors-new-station/actions/workflows/sphinx-gh-pages.yml/badge.svg)
 
 Two architects arrived at the Emperor's court, claiming they could build magnificent stations of unparalleled beauty—visible only to the wise and competent, but completely invisible to anyone who was stupid or unfit for their position.
 
