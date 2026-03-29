@@ -10,8 +10,9 @@ render
 *.prof
 
 # Generated documentation
-docs/*
+docs/_build/
+docs/img/
+docs/*.md
 !docs/readme.md
-!docs/conf.py
 !docs/changelog.md
-!docs/Makefile
+docs/*.rst
