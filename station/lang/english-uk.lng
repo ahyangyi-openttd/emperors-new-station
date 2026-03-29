@@ -11,10 +11,10 @@ STR_PARAM_ROAD_STATION              :Road Station
 STR_PARAM_ROAD_WAYPOINT             :Road Waypoint
 
 STR_PARAM_ROADSTOP           :Road Stations
-STR_PARAM_ROADSTOP_DESC      :Do you want the Emperor's New Road Stations in your game?
+STR_PARAM_ROADSTOP_DESC      :Do you want the "Emperor's New Road Stations" in your game?
 
 STR_PARAM_RAIL_STATION          :Railway Stations
-STR_PARAM_RAIL_STATION_DESC     :Do you want the Emperor's New Railway Stations in your game?
+STR_PARAM_RAIL_STATION_DESC     :Do you want the "Emperor's New Railway Stations" in your game?
 
 STR_STATION_RAIL_NAME                    :Emperor's New Rail Station
 STR_STATION_RAIL_WAYPOINT                :Emperor's New Rail Waypoint

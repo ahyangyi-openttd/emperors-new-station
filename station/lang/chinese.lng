@@ -1,21 +1,16 @@
 ##grflangid 0x56
-STR_GRF_NAME                    :皇帝的新车站 {WHITE}1.0.0-INDEV
-STR_GRF_DESC                    :据说，本 NewGRF 包含了富丽堂皇的新车站，只有智者能看见，而愚蠢或不胜任的人是看不见的。{}{}严肃一点的介绍：本 NewGRF 提供了使用基础图像包的素材的火车站、汽车站和路点。它们可以用来建造正常运作但"隐形"的站点。
+STR_GRF_NAME                    :皇帝的新站 {WHITE}1.0.0-INDEV
+STR_GRF_DESC                    :据说，本 NewGRF 包含了富丽堂皇的新站点，只有智者能看见，而愚蠢或不胜任的人是看不见的。{}{}严肃一点的介绍：本 NewGRF 提供了使用基础图像包的素材的火车站、汽车站和路点。它们可以用来建造正常运作但"隐形"的站点。
 
 
 STR_PARAM_BOOLEAN_ENABLED           :启用
 STR_PARAM_BOOLEAN_DISABLED          :禁用
 
-STR_PARAM_TRAIN_STATION             :火车站
-STR_PARAM_TRAIN_WAYPOINT            :火车路点
-STR_PARAM_ROAD_STATION              :汽车站
-STR_PARAM_ROAD_WAYPOINT             :汽车路点
-
 STR_PARAM_ROADSTOP           :汽车站
-STR_PARAM_ROADSTOP_DESC      :你想在游戏中使用皇帝的新汽车站吗？
+STR_PARAM_ROADSTOP_DESC      :你想在游戏中使用“皇帝的新汽车站”吗？
 
 STR_PARAM_RAIL_STATION          :火车站
-STR_PARAM_RAIL_STATION_DESC     :你想在游戏中使用皇帝的新火车站吗？
+STR_PARAM_RAIL_STATION_DESC     :你想在游戏中使用“皇帝的新火车站”吗？
 
 STR_STATION_RAIL_NAME                    :皇帝的新火车站
 STR_STATION_RAIL_WAYPOINT                :皇帝的新铁路路点
