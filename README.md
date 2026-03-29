@@ -1,7 +1,7 @@
 Emperor's New Station
 =====================
 
-![Unit tests](https://github.com/ahyangyi/emperors-new-station/actions/workflows/unit-tests.yml/badge.svg)
+![Unit tests](https://github.com/ahyangyi-openttd/emperors-new-station/actions/workflows/unit-tests.yml/badge.svg)
 
 A minimalist station set.
 
