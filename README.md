@@ -28,6 +28,8 @@ On the day of the parade, the citizens gathered to admire these celebrated stati
 
 On a more serious note, this NewGRF provides railway stations, bus stations, and waypoints that reuse base set bare ground graphics. They can be used to make functional stations that are "invisible".
 
+This might also be of educational value, showcasing how one creates stations with the `agrf`/`grf-py` stack.
+
 # Building
 ## Preparation
 This depends on an up-to-date version of `agrf`, which in turn depends on `grf-py`. You can install the dependencies by using `pip`:
