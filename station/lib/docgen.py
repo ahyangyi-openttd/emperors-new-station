@@ -35,16 +35,16 @@ changelog""",
 
         for kind in ["stations", "waypoints", "road_stops", "objects"]:
             if kind == "road_stops":
-                pool = [x for x in getattr(metastation, "road_stops", []) if not x.is_waypoint]
+                pool = [x for x in metastation.road_stops if not x.is_waypoint]
             elif kind == "objects":
-                pool = getattr(metastation, "objects", [])
+                pool = metastation.objects
             else:
-                pool = getattr(metastation, "stations", [])
+                pool = metastation.stations
 
             if not pool:
                 continue
 
-            if getattr(metastation, "categories", None) is None:
+            if metastation.categories is None:
                 subsections = {
                     None: [
                         x
@@ -107,7 +107,7 @@ changelog""",
                             file=f,
                         )
 
-        demos_dict = getattr(metastation, "demos", {})
+        demos_dict = metastation.demos
         single_section = len(demos_dict) == 1
         for title, demos_list in demos_dict.items():
             demok = title.replace(" ", "_").lower()
