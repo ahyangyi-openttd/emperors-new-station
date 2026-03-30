@@ -57,5 +57,5 @@ def make_roadstop(roadstops, base_id, translation_name, graphics, doc_layout, ge
 
 
 roadstops = []
-make_roadstop(roadstops, 0x00, "STOP", switch, layout_4)
-make_roadstop(roadstops, 0x01, "STOP", switch_1332, layout_1332_4, general_flags=0x8)
+make_roadstop(roadstops, 0x01, "STOP", switch, layout_4)
+make_roadstop(roadstops, 0x00, "STOP", switch_1332, layout_1332_4, general_flags=0x8)
