@@ -1,8 +1,5 @@
-import types
-import grf
 from dataclasses import replace
-from agrf.sprites import empty_alternatives
-from station.lib import AStation, AMetaStation, Demo, ALayout, BuildingCylindrical, BuildingSymmetrical
+from station.lib import AStation, AMetaStation, ALayout, BuildingCylindrical, BuildingSymmetrical
 from station.lib.parameters import parameter_list
 from .misc import track_ground, default_ground, building_ground
 from .demo import get_demos
@@ -66,15 +63,6 @@ station_tiles, entries = register()
 
 demos = get_demos(entries)
 
-
-def make_empty_variant(w, h, x, y):
-    empty_image = empty_alternatives(w, h, x, y)
-    empty_image.squash = types.MethodType(lambda self, *args, empty_image=empty_image: self, empty_image)
-    return BuildingCylindrical.create_variants([empty_image])
-
-
-empty_offset = (-31, -34)
-empty_sprite = make_empty_variant(64, 68, *empty_offset)
 
 the_stations = AMetaStation(station_tiles, ENS_CLASS, [ENS_CLASS], demos, road_stops=[])
 

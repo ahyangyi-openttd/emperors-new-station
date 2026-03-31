@@ -1,5 +1,4 @@
 from agrf.parameters import Parameter, ParameterList
-from agrf.magic import Switch
 from grf import ParameterMapping
 
 booldict = {0: "DISABLED", 1: "ENABLED"}
