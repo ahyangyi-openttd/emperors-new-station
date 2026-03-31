@@ -1,7 +1,7 @@
 import os
-from agrf.strings import get_translation, remove_control_letters
+from agrf.strings import get_translation, label_printable, remove_control_letters
 from agrf.graphics.palette import CompanyColour
-from .utils import get_1cc_remap, class_label_printable
+from .utils import get_1cc_remap
 
 
 def gen_docs(string_manager, metastations):
@@ -78,9 +78,7 @@ changelog""",
                 single_subsection = len(subsections) == 1
                 for sub in subsections:
                     if not single_subsection and sub is not None and len(subsections[sub]) > 0:
-                        cat_name = get_translation(
-                            string_manager[f"STR_STATION_CLASS_{class_label_printable(sub)}"], 0x7F
-                        )
+                        cat_name = get_translation(string_manager[f"STR_STATION_CLASS_{label_printable(sub)}"], 0x7F)
                         if "-" in cat_name and "Template -" not in cat_name:
                             cat_name = cat_name.split("-")[-1].strip()
                         cat_name = remove_control_letters(cat_name)

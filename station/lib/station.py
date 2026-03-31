@@ -1,8 +1,8 @@
 import grf
 from agrf.actions import FakeReferencingAction, FakeReferencedAction
 from agrf.lib.building.registers import code
+from agrf.strings import label_printable
 from agrf.utils import unique
-from .utils import class_label_printable
 
 
 class AStation(grf.SpriteGenerator):
@@ -38,7 +38,7 @@ class AStation(grf.SpriteGenerator):
 
     @property
     def class_label_plain(self):
-        return class_label_printable(self._props["class_label"])
+        return label_printable(self._props["class_label"])
 
     def get_sprites(self, g, sprites=None):
         is_managed_by_metastation = sprites is not None

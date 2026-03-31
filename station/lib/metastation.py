@@ -1,6 +1,6 @@
 import grf
+from agrf.strings import label_printable
 from agrf.utils import unique
-from .utils import class_label_printable
 
 
 class AMetaStation(grf.SpriteGenerator):
@@ -17,7 +17,7 @@ class AMetaStation(grf.SpriteGenerator):
 
     @property
     def class_label_plain(self):
-        return class_label_printable(self.class_label)
+        return label_printable(self.class_label)
 
     def check_id_uniqueness(self):
         ids = [x.id for x in self.stations]

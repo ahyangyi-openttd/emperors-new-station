@@ -1,4 +1,4 @@
-from roadstop.lib import ARoadStop
+from agrf.lib.building.roadstop import ARoadStop
 from agrf.magic import Switch
 from station.lib import ALayout, ADefaultGroundSprite
 from station.lib.parameters import parameter_list
