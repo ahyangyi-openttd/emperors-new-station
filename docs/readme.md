@@ -57,6 +57,7 @@ Code:
 grf-py:
 - dP
 
+Special thanks to Zephyris, Simon Foster, and any other artist who contributed to whatever base set you are using. All the beauty of Emperor's New Station comes from their groundwork :)
 
 ## 4 Contact information
 ### 4.1 Bug reports
