@@ -1,8 +1,11 @@
 from dataclasses import replace
+from agrf.lib.building.baseset_layouts import grassland_tile, building_ground_tile
+from agrf.lib.building.baseset_sprites import default_railroad
 from station.lib import AStation, AMetaStation, ALayout, BuildingCylindrical, BuildingSymmetrical
 from station.lib.parameters import parameter_list
-from .misc import track_ground, default_ground, building_ground
 from .demo import get_demos
+
+track_layout = ALayout(default_railroad, [], True)
 
 ENS_CLASS = b"ENS_"
 
@@ -48,13 +51,9 @@ def register():
     station_tiles = []
     entries = []
 
-    make_station(station_tiles, entries, ALayout(track_ground, [], True, category=ENS_CLASS), BuildingSymmetrical, 0x00)
-    make_station(
-        station_tiles, entries, ALayout(default_ground, [], False, category=ENS_CLASS), BuildingCylindrical, 0x10
-    )
-    make_station(
-        station_tiles, entries, ALayout(building_ground, [], False, category=ENS_CLASS), BuildingCylindrical, 0x11
-    )
+    make_station(station_tiles, entries, replace(track_layout, category=ENS_CLASS), BuildingSymmetrical, 0x00)
+    make_station(station_tiles, entries, replace(grassland_tile, category=ENS_CLASS), BuildingCylindrical, 0x10)
+    make_station(station_tiles, entries, replace(building_ground_tile, category=ENS_CLASS), BuildingCylindrical, 0x11)
 
     return station_tiles, entries
 
