@@ -1,4 +1,5 @@
-from station.lib import Demo, ALayout, ADefaultGroundSprite
+from agrf.lib.building.demo import Demo
+from station.lib import ALayout, ADefaultGroundSprite
 
 
 def repeat(layouts_list, n):

@@ -1,8 +1,8 @@
 import grf
 from agrf.actions import FakeReferencingAction, FakeReferencedAction
+from agrf.lib.building.registers import code
 from agrf.utils import unique
 from .utils import class_label_printable
-from .registers import code
 
 
 class AStation(grf.SpriteGenerator):
