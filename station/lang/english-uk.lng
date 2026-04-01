@@ -1,5 +1,5 @@
 ##grflangid 0x01
-STR_GRF_NAME                    :Emperor's New Station {WHITE}1.0.0-INDEV
+STR_GRF_NAME                    :Emperor's New Station {WHITE}1.0.0
 STR_GRF_DESC                    :{}It is rumored that this NewGRF contains magnificent new stations, visible only to the wise and completely invisible to anyone who is stupid or unfit for their position.{}{}On a more serious note, this NewGRF provides railway stations, bus stations, and waypoints that reuse base set bare ground graphics. They can be used to make functional stations that are "invisible".
 
 STR_PARAM_BOOLEAN_ENABLED           :Enabled

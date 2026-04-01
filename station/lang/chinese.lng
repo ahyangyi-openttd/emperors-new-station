@@ -1,5 +1,5 @@
 ##grflangid 0x56
-STR_GRF_NAME                    :皇帝的新站 {WHITE}1.0.0-INDEV
+STR_GRF_NAME                    :皇帝的新站 {WHITE}1.0.0
 STR_GRF_DESC                    :{}据说，本 NewGRF 包含了富丽堂皇的新站点，只有智者能看见，而愚蠢或不胜任的人是看不见的。{}{}严肃一点的介绍：本 NewGRF 提供了使用基础图像包的素材的火车站、汽车站和路点。它们可以用来建造正常运作但"隐形"的站点。
 
 
