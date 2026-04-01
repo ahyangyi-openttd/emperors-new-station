@@ -1,4 +1,5 @@
 from agrf.lib.building.roadstop import ARoadStop
+from agrf.lib.building.registers import Registers
 from agrf.magic import Switch
 from station.lib import ALayout, ADefaultGroundSprite
 from station.lib.parameters import parameter_list
@@ -11,8 +12,8 @@ stop_3 = ADefaultGroundSprite(2695)
 
 paved_x = ADefaultGroundSprite(1314)
 paved_y = ADefaultGroundSprite(1313)
-paved_1332_x = ADefaultGroundSprite(1333)
-paved_1332_y = ADefaultGroundSprite(1332)
+bare_road_x = ADefaultGroundSprite(1333, {"add": Registers.CLIMATE_ROAD_OFFSET})
+bare_road_y = ADefaultGroundSprite(1332, {"add": Registers.CLIMATE_ROAD_OFFSET})
 
 layout_0 = ALayout(stop_0, [], True, category=ENS_CLASS)
 layout_1 = ALayout(stop_1, [], True, category=ENS_CLASS)
@@ -20,8 +21,8 @@ layout_2 = ALayout(stop_2, [], True, category=ENS_CLASS)
 layout_3 = ALayout(stop_3, [], True, category=ENS_CLASS)
 layout_4 = ALayout(paved_x, [], True, category=ENS_CLASS)
 layout_5 = ALayout(paved_y, [], True, category=ENS_CLASS)
-layout_1332_4 = ALayout(paved_1332_x, [], True, category=ENS_CLASS)
-layout_1332_5 = ALayout(paved_1332_y, [], True, category=ENS_CLASS)
+layout_1332_4 = ALayout(bare_road_x, [], True, category=ENS_CLASS)
+layout_1332_5 = ALayout(bare_road_y, [], True, category=ENS_CLASS)
 
 switch = Switch(ranges={0: layout_0, 1: layout_1, 2: layout_2, 3: layout_3, 4: layout_4}, default=layout_5, code="view")
 
