@@ -20,5 +20,5 @@ station.grf:
 	python3 -m station.ens gen
 
 cc.station:
-	opencc -i station/lang/chinese.lng -o station/lang/traditional_chinese.lng -c station/lang/opencc_config/s2t.json
+	python3 -m agrf.localization.traditional_chinese -i station/lang/chinese.lng -o station/lang/traditional_chinese.lng
 	sed -i 's/##grflangid.*/##grflangid 0x0C/' station/lang/traditional_chinese.lng
