@@ -25,7 +25,7 @@ def gen(args):
         min_compatible_version=0,
         id_map_file="station/id_map.json",
         sprite_cache_path="station/.cache",
-        url="https://www.tt-forums.net/viewtopic.php?t=91092",
+        url="https://github.com/ahyangyi-openttd/emperors-new-station",
         strings=s,
         preferred_blitter=grf.NewGRF.BLITTER_BPP_32,
     )
